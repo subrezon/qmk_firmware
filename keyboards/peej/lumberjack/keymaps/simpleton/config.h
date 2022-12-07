@@ -1,0 +1,7 @@
+#pragma once
+
+#define USB_POLLING_INTERVAL_MS 1
+#undef  DEBOUNCE
+#define DEBOUNCE 3
+
+#define UNICODE_SELECTED_MODES UC_LNX, UC_WINC
