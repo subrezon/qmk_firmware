@@ -13,3 +13,7 @@ for more options.
 
 // Don't remember the last used mode, always start with the first
 #define UNICODE_CYCLE_PERSIST false
+
+// Debug to find out scan rate
+#define DEBUG_MATRIX_SCAN_RATE
+
