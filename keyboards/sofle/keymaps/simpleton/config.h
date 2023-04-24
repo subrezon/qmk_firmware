@@ -17,3 +17,4 @@ for more options.
 // Debug to find out scan rate
 #define DEBUG_MATRIX_SCAN_RATE
 
+#define EE_HANDS
