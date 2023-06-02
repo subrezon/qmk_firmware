@@ -5,16 +5,20 @@ see https://docs.qmk.fm/#/feature_split_keyboard?id=setting-handedness
 for more options.
 */
 
-#define USB_POLLING_INTERVAL_MS 1
-#undef DEBOUNCE
+// Latency
+#undef  DEBOUNCE
 #define DEBOUNCE 5
+#define USB_POLLING_INTERVAL_MS 1
 
+// Unicode
 #define UNICODE_SELECTED_MODES UNICODE_MODE_LINUX, UNICODE_MODE_WINCOMPOSE
+#define UNICODE_CYCLE_PERSIST false  // Don't remember the last used mode, always start with the first
 
-// Don't remember the last used mode, always start with the first
-#define UNICODE_CYCLE_PERSIST false
-
-// Debug to find out scan rate
-#define DEBUG_MATRIX_SCAN_RATE
-
+// Split
 #define EE_HANDS
+
+// Tap-Hold
+#undef  TAPPING_TERM
+#define TAPPING_TERM 250
+#define TAPPING_TERM_PER_KEY
+#define QUICK_TAP_TERM 120
