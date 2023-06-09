@@ -8,7 +8,6 @@ enum layers {
     FUNCTIONS,
     NUMBERS,
     SYMBOLS,
-    UMLAUTS,
     MINECRAFT,
     DOTA,
     QWERTY,
@@ -240,15 +239,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
+        case T_CTRL:
+        case N_CTRL:
+            return TAPPING_TERM;
+
         case A_GUI:
         case R_ALT:
         case S_SHIFT:
-        case T_CTRL:
-        case N_CTRL:
         case E_SHIFT:
         case I_ALT:
         case O_GUI:
-            return TAPPING_TERM;
+            return TAPPING_TERM + 50;
 
         case ESC_MEDI:
         case SPC_NAVI:
