@@ -7,7 +7,7 @@ for more options.
 
 // Latency
 #undef  DEBOUNCE
-#define DEBOUNCE 6
+#define DEBOUNCE 7
 #define USB_POLLING_INTERVAL_MS 1
 
 // Unicode
