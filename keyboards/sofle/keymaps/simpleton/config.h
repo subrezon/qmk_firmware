@@ -22,3 +22,6 @@ for more options.
 #define TAPPING_TERM 225
 #define TAPPING_TERM_PER_KEY
 #define QUICK_TAP_TERM 120
+
+// debug usb
+#define SPLIT_WATCHDOG_ENABLE
