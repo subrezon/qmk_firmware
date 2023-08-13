@@ -1,0 +1,9 @@
+#pragma once
+
+// Latency
+#undef DEBOUNCE
+#define DEBOUNCE 5
+#define USB_POLLING_INTERVAL_MS 1
+
+// Unicode
+#define UNICODE_SELECTED_MODES UNICODE_MODE_WINCOMPOSE
