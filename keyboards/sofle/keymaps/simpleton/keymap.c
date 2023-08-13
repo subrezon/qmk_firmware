@@ -56,7 +56,8 @@ enum unicode_names {
     U_DIAERESIS_SMALL,
     U_DIAERESIS_CAPITAL,
     S_SHARP_SMALL,
-    S_SHARP_CAPITAL
+    S_SHARP_CAPITAL,
+    EURO_SIGN,
 };
 
 const uint32_t PROGMEM unicode_map[] = {
@@ -68,6 +69,7 @@ const uint32_t PROGMEM unicode_map[] = {
     [U_DIAERESIS_CAPITAL] = 0xdc,    // Ü
     [S_SHARP_SMALL]       = 0xdf,    // ß
     [S_SHARP_CAPITAL]     = 0x1e9e,  // ẞ
+    [EURO_SIGN]           = 0x20ac,  // €
 };
 
 #define MO_UML MO(UMLAUTS)
@@ -75,6 +77,7 @@ const uint32_t PROGMEM unicode_map[] = {
 #define XP_OD  XP(O_DIAERESIS_SMALL, O_DIAERESIS_CAPITAL)
 #define XP_UD  XP(U_DIAERESIS_SMALL, U_DIAERESIS_CAPITAL)
 #define XP_SS  XP(S_SHARP_SMALL,     S_SHARP_CAPITAL    )
+#define X_EURO X(EURO_SIGN)
 
 // keymap
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -96,7 +99,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     //┌────────┬────────┬────────┬────────┬────────┬────────┐                 ┌────────┬────────┬────────┬────────┬────────┬────────┐
         _______, _______, _______, _______, _______, _______,                   _______, _______, _______, _______, _______, _______,
     //├────────┼────────┼────────┼────────┼────────┼────────┤                 ├────────┼────────┼────────┼────────┼────────┼────────┤
-        _______, _______, UC_WINC, _______, _______, _______,                   _______, _______, _______, _______, _______, _______,
+        _______, _______, UC_WINC,  X_EURO, _______, _______,                   _______, _______, _______, _______, _______, _______,
     //├────────┼────────┼────────┼────────┼────────┼────────┤                 ├────────┼────────┼────────┼────────┼────────┼────────┤
         _______,   XP_AD,   XP_OD,   XP_SS,   XP_UD, _______,                   _______, KC_MPRV, KC_MNXT, KC_VOLD, KC_VOLU, _______,
     //├────────┼────────┼────────┼────────┼────────┼────────┼────────╥────────┼────────┼────────┼────────┼────────┼────────┼────────┤
