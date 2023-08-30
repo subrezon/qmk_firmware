@@ -12,7 +12,7 @@ for more options.
 
 // Unicode
 #define UNICODE_SELECTED_MODES UNICODE_MODE_LINUX, UNICODE_MODE_WINCOMPOSE
-#define UNICODE_CYCLE_PERSIST  false  // Don't remember the last used mode, always start with the first
+#define UNICODE_CYCLE_PERSIST false  // Don't remember the last used mode, always start with the first
 
 // Split
 #define EE_HANDS
