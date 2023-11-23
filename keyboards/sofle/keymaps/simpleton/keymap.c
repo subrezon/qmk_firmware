@@ -93,6 +93,11 @@ const uint32_t PROGMEM unicode_map[] = {
 #define XP_SS  XP(S_SHARP_SMALL,     S_SHARP_CAPITAL)
 #define X_EURO X(EURO_SIGN)
 
+// toggle LMB
+enum custom_keycodes {
+    TOGGLE_LMB = SAFE_RANGE,
+};
+
 // keymap
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
@@ -247,7 +252,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     //├────────┼────────┼────────┼────────┼────────┼────────┤                 ├────────┼────────┼────────┼────────┼────────┼────────┤
          KC_GRV,    KC_A,    KC_R,    KC_S,    KC_T,    KC_G,                      KC_M,    KC_N,    KC_E,    KC_I,    KC_O, KC_SCLN,
     //├────────┼────────┼────────┼────────┼────────┼────────┼────────╥────────┼────────┼────────┼────────┼────────┼────────┼────────┤
-        KC_LSFT,    KC_Z,    KC_X,    KC_C,    KC_D,    KC_V, XXXXXXX, XXXXXXX,    KC_K,    KC_H, KC_COMM,  KC_DOT, KC_SLSH, XXXXXXX,
+        KC_LSFT,    KC_Z,    KC_X,    KC_C,    KC_D,    KC_V, XXXXXXX, XXXXXXX,    KC_K,    KC_H, KC_COMM,  KC_DOT, KC_SLSH, TOGGLE_LMB,
     //└────────┴────────┼────────┼────────┼────────┼────────┼────────╫────────┼────────┼────────┼────────┼────────┼────────┴────────┘
                           _______, _______, KC_LCTL,  KC_SPC, KC_LALT,  KC_ENT, KC_BSPC,  KC_DEL, _______, _______
     //                  └────────┴────────┴────────┴────────┴────────╨────────┴────────┴────────┴────────┴────────┘
@@ -292,6 +297,23 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     //                  └────────┴────────┴────────┴────────┴────────╨────────┴────────┴────────┴────────┴────────┘
     )
 };
+
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+    switch(keycode){
+        case TOGGLE_LMB:
+            if (record->event.pressed) {
+                static bool is_toggled;
+                is_toggled ^= 1;
+                if (is_toggled) { 
+                    register_code(KC_BTN1);
+                } else { 
+                    unregister_code(KC_BTN1);
+                }
+            }
+            break;
+    }
+    return true;
+}
 
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
