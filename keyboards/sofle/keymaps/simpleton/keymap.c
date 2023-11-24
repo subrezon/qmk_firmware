@@ -96,6 +96,7 @@ const uint32_t PROGMEM unicode_map[] = {
 // toggle LMB
 enum custom_keycodes {
     TOGGLE_LMB = SAFE_RANGE,
+    TOGGLE_RMB,
 };
 
 // keymap
@@ -248,7 +249,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     //┌────────┬────────┬────────┬────────┬────────┬────────┐                 ┌────────┬────────┬────────┬────────┬────────┬────────┐
          KC_ESC,    KC_1,    KC_2,    KC_3,    KC_4,    KC_5,                      KC_6,    KC_7,    KC_8,    KC_9,    KC_0, DF_CLMK,
     //├────────┼────────┼────────┼────────┼────────┼────────┤                 ├────────┼────────┼────────┼────────┼────────┼────────┤
-         KC_TAB,    KC_Q,    KC_W,    KC_F,    KC_P,    KC_B,                      KC_J,    KC_L,    KC_U,    KC_Y, KC_QUOT, XXXXXXX,
+         KC_TAB,    KC_Q,    KC_W,    KC_F,    KC_P,    KC_B,                      KC_J,    KC_L,    KC_U,    KC_Y, KC_QUOT, TOGGLE_RMB,
     //├────────┼────────┼────────┼────────┼────────┼────────┤                 ├────────┼────────┼────────┼────────┼────────┼────────┤
          KC_GRV,    KC_A,    KC_R,    KC_S,    KC_T,    KC_G,                      KC_M,    KC_N,    KC_E,    KC_I,    KC_O, KC_SCLN,
     //├────────┼────────┼────────┼────────┼────────┼────────┼────────╥────────┼────────┼────────┼────────┼────────┼────────┼────────┤
@@ -299,19 +300,32 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 };
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-    switch(keycode){
+    switch (keycode) {
         case TOGGLE_LMB:
-            if (record->event.pressed) {
-                static bool is_toggled;
-                is_toggled ^= 1;
-                if (is_toggled) { 
+            if (record -> event.pressed) {
+                static bool is_toggled_lmb;
+                is_toggled_lmb ^= 1;
+                if (is_toggled_lmb) { 
                     register_code(KC_BTN1);
                 } else { 
                     unregister_code(KC_BTN1);
                 }
             }
             break;
+
+        case TOGGLE_RMB:
+            if (record -> event.pressed) {
+                static bool is_toggled_rmb;
+                is_toggled_rmb ^= 1;
+                if (is_toggled_rmb) { 
+                    register_code(KC_BTN2);
+                } else { 
+                    unregister_code(KC_BTN2);
+                }
+            }
+            break;
     }
+
     return true;
 }
 
