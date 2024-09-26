@@ -93,11 +93,11 @@ const uint32_t PROGMEM unicode_map[] = {
 };
 
 #define MO_UML MO(UMLAUTS)
-#define XP_AD  XP(A_DIAERESIS_SMALL, A_DIAERESIS_CAPITAL)
-#define XP_OD  XP(O_DIAERESIS_SMALL, O_DIAERESIS_CAPITAL)
-#define XP_UD  XP(U_DIAERESIS_SMALL, U_DIAERESIS_CAPITAL)
-#define XP_SS  XP(S_SHARP_SMALL,     S_SHARP_CAPITAL)
-#define X_EURO X(EURO_SIGN)
+#define UP_AD  UP(A_DIAERESIS_SMALL, A_DIAERESIS_CAPITAL)
+#define UP_OD  UP(O_DIAERESIS_SMALL, O_DIAERESIS_CAPITAL)
+#define UP_UD  UP(U_DIAERESIS_SMALL, U_DIAERESIS_CAPITAL)
+#define UP_SS  UP(S_SHARP_SMALL,     S_SHARP_CAPITAL)
+#define UM_EUR UM(EURO_SIGN)
 
 // toggle LMB
 enum custom_keycodes {
@@ -138,9 +138,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     //┌────────┬────────┬────────┬────────┬────────┬────────┐                 ┌────────┬────────┬────────┬────────┬────────┬────────┐
         _______, _______, _______, _______, _______, _______,                   _______, _______, _______, _______, _______, _______,
     //├────────┼────────┼────────┼────────┼────────┼────────┤                 ├────────┼────────┼────────┼────────┼────────┼────────┤
-        _______, _______, UC_WINC,  X_EURO, _______, _______,                   _______, UC_LINX, _______, _______, _______, _______,
+        _______, _______, UC_WINC,  UM_EUR, _______, _______,                   _______, UC_LINX, _______, _______, _______, _______,
     //├────────┼────────┼────────┼────────┼────────┼────────┤                 ├────────┼────────┼────────┼────────┼────────┼────────┤
-        _______,   XP_AD,   XP_OD,   XP_SS,   XP_UD, _______,                   _______, KC_MPRV, KC_MNXT, KC_VOLD, KC_VOLU, _______,
+        _______,   UP_AD,   UP_OD,   UP_SS,   UP_UD, _______,                   _______, KC_MPRV, KC_MNXT, KC_VOLD, KC_VOLU, _______,
     //├────────┼────────┼────────┼────────┼────────┼────────┼────────╥────────┼────────┼────────┼────────┼────────┼────────┼────────┤
         _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
     //└────────┴────────┼────────┼────────┼────────┼────────┼────────╫────────┼────────┼────────┼────────┼────────┼────────┴────────┘
